@@ -20,7 +20,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve("src/public/index.html"),
+      template: resolve("public/index.html"),
     }),
   ],
 };
