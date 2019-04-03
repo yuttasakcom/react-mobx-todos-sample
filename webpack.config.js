@@ -1,6 +1,7 @@
 const path = require("path");
 const resolve = dir => path.resolve(__dirname, dir);
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const config = {
   devtool: "eval",
@@ -22,6 +23,13 @@ const config = {
     new HtmlWebpackPlugin({
       template: resolve("public/index.html"),
     }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, "public/static"),
+        to: "static",
+        ignore: [".*"],
+      },
+    ]),
   ],
 };
 

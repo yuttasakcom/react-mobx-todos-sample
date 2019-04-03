@@ -1,7 +1,7 @@
 import { observable } from "mobx";
 
-class TodoStore {
+class TodosStore {
   @observable todos = [];
 }
 
-export default new TodoStore();
+export default new TodosStore();
