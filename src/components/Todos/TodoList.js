@@ -6,7 +6,7 @@ class TodosList extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.refs.todo.value === "") return;
-    this.props.todoStore.addTodo(this.refs.todo.value);
+    this.props.store.todos.addTodo(this.refs.todo.value);
     this.refs.todo.value = "";
   };
 
@@ -19,14 +19,15 @@ class TodosList extends React.Component {
           <input type="text" ref="todo" onChange={this.handleChange} />
           <button type="submit">submit</button>
         </form>
-
-        <ul>
-          {this.props.todoStore.getTodos.map((todo, i) => (
-            <Todo key={i} id={i} todo={todo} />
-          ))}
-        </ul>
+        {this.props.store.todos.getTodos.length > 0 && (
+          <ul>
+            {this.props.store.todos.getTodos.map((todo, i) => (
+              <Todo key={i} id={i} todo={todo} />
+            ))}
+          </ul>
+        )}
       </div>
     );
   }
 }
-export default inject("todoStore")(observer(TodosList));
+export default inject("store")(observer(TodosList));
