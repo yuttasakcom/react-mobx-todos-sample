@@ -1,11 +1,11 @@
 import React from "react";
 import { observer, Provider } from "mobx-react";
 
-import store from "../store";
+import todoStore from "../store/todoStore";
 import TodoList from "./Todos/TodoList";
 
 const App = observer(() => (
-  <Provider store={store}>
+  <Provider todoStore={todoStore}>
     <>
       <h2>Index Page</h2>
       <TodoList />
